@@ -6,6 +6,7 @@ a = document.getElementById("board").children;
 for (i=0; i<9;i++){
 a[i].setAttribute("class","square");
  setXorO();
+ glow();
 
 }
 }
@@ -42,4 +43,23 @@ function setXorO() {
             }
         }
     }
+}
+
+
+function glow() {
+    let store = document.getElementById("board").children;
+
+    for (let i = 0; i < 9; i++) {
+        store[i].onmouseover = function() {
+
+            store[i].classList.toggle("hover", true)
+
+        }
+        store[i].onmouseout = function() {
+
+            store[i].classList.toggle("hover", false)
+            
+        }
+    }
+
 }
