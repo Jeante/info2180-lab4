@@ -34,6 +34,8 @@ function setXorO() {
 
                 check();
 
+                restart();
+
 
 
             }
@@ -45,6 +47,8 @@ function setXorO() {
 
                     check();
 
+                    restart();
+
 
 
                 }
@@ -54,6 +58,8 @@ function setXorO() {
                     W.push("X");
 
                     check();
+
+                    restart();
 
 
 
@@ -81,6 +87,19 @@ function glow() {
         }
     }
 
+}
+
+function restart() {
+    let bCells = document.querySelectorAll("#board div");
+    document.getElementsByClassName("btn")[0].addEventListener("click", function() {
+        game.length = 0;
+        for (let j= 0; j < bCells.length; j++) {
+            bCells[j].innerHTML = "";
+        }
+
+        document.getElementById("status").innerHTML = "Move your mouse over a square and click to play an X or an O.";
+        document.getElementById("status").classList.remove("you-won");
+    });
 }
 
 function check() {
